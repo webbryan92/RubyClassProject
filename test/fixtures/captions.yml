@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  imgurl: MyString
+  captioner: 
+  caption: MyText
+  votes: 1
+
+two:
+  imgurl: MyString
+  captioner: 
+  caption: MyText
+  votes: 1
