@@ -1,0 +1,9 @@
+<h1>Captions</h1>
+
+<ul>
+    <% @captions.each do |caption| %>
+    <li>
+        <strong><%= link_to(caption.imgurl, caption_path(caption)) %></strong>
+    </li>
+    <% end %>
+<ul>
