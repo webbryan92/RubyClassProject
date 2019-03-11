@@ -15,6 +15,23 @@ class CaptionsController < ApplicationController
     def show
         @caption = Caption.find(params[:id])
     end
+    def edit
+        @caption = Caption.find(params[:id])
+    end
+    def update
+        @caption = Caption.find(params[:id])
+        if @caption.update(caption_params)
+            redirect_to @caption
+        else
+            render 'edit'
+        end
+    end
+    def destroy
+        @caption = Caption.find(params[:id])
+        @caption.destroy
+
+        redirect_to captions_path
+    end
 
     private
         def caption_params

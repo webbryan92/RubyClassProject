@@ -1,19 +1,2 @@
 <h1>Create a new Caption</h1>
-
-<%= form_with model: @caption, local: true do |form| %> 
-  <p>
-    <%= form.label :ImageURL %><br>
-    <%= form.text_field :imgurl %>
-  </p>
-  <p>
-    <%= form.label :captioner %><br>
-    <%= form.text_field :captioner %>
-  </p> 
-  <p>
-    <%= form.label :caption %><br>
-    <%= form.text_area :caption %>
-  </p> 
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%= render 'form' %>

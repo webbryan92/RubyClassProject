@@ -1,0 +1,27 @@
+<%= form_with model: @caption, local: true do |form| %> 
+  <% if @caption.errors.any? %>
+    <h2>
+        <%= pluralize(@caption.errors.count, "error") %> prohibited this from being saved.
+    </h2>
+    <ul>
+        <% caption.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+  <p>
+    <%= form.label :ImageURL %><br>
+    <%= form.text_field :imgurl %>
+  </p>
+  <p>
+    <%= form.label :captioner %><br>
+    <%= form.text_field :captioner %>
+  </p> 
+  <p>
+    <%= form.label :caption %><br>
+    <%= form.text_area :caption %>
+  </p> 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

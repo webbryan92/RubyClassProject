@@ -3,7 +3,13 @@
 <ul>
     <% @captions.each do |caption| %>
     <li>
-        <strong><%= link_to(caption.imgurl, caption_path(caption)) %></strong>
+        <strong>
+        <%= image_tag @caption.imgurl, 
+            src: 'image not found',
+            onerror:'this.error=null;this.src="https://i.imgur.com/8jkqrCr.jpg"'
+        %>
+        <%= link_to(caption.imgurl, caption_path(caption)) %>
+        </strong>
     </li>
     <% end %>
 <ul>
