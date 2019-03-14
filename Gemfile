@@ -28,6 +28,10 @@ gem 'sqlite3', git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-ge
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+gem 'bootstrap'
+gem 'jquery-rails'
+#responsive styling
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

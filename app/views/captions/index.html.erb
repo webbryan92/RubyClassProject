@@ -4,12 +4,19 @@
     <% @captions.each do |caption| %>
     <li>
         <strong>
-        <%= image_tag @caption.imgurl, 
-            src: 'image not found',
-            onerror:'this.error=null;this.src="https://i.imgur.com/8jkqrCr.jpg"'
-        %>
-        <%= link_to(caption.imgurl, caption_path(caption)) %>
+        <img 
+            src="<%= caption.imgurl %>" 
+            alt="hotlink is unavailable" 
+            height="100"
+            width="100"
+            onerror="this.src = `https://picsum.photos/g/200/300`">
+        <!--<%= link_to(caption.imgurl, caption_path(caption)) %>-->
+        <h4><%= caption.captioner %></h1>
         </strong>
+        <p><%= caption.caption %></p>  
+        <p>Total Votes: <%= caption.votes %></p>
+        <%= link_to 'upvote', increment_vote_caption_path(caption) %>
+        <button type="button">v</button>  
     </li>
     <% end %>
 <ul>
