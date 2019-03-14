@@ -15,8 +15,8 @@
         </strong>
         <p><%= caption.caption %></p>  
         <p>Total Votes: <%= caption.votes %></p>
-        <%= link_to 'upvote', increment_vote_caption_path(caption) %>
-        <button type="button">v</button>  
+        <%= button_to 'upvote', increment_vote_caption_path(caption) %>
+        <%= button_to 'downvote', decrement_vote_caption_path(caption) %>
     </li>
     <% end %>
 <ul>
