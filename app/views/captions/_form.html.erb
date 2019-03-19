@@ -8,20 +8,23 @@
             <li><%= msg %></li>
         <% end %>
     </ul>
-<% end %>
-  <p>
-    <%= form.label :ImageURL %><br>
-    <%= form.text_field :imgurl %>
-  </p>
-  <p>
-    <%= form.label :captioner %><br>
-    <%= form.text_field :captioner %>
-  </p> 
-  <p>
-    <%= form.label :caption %><br>
-    <%= form.text_area :caption %>
-  </p> 
-  <p>
-    <%= form.submit %>
-  </p>
+  <% end %>
+  <div class = "form-group">
+    <%= form.label :ImageURL, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= form.text_field :imgurl, class: "form-control" %>
+    </div>
+    <%= form.label :captioner, class: "col-md-4 control-label" %><br>
+    <div class="col-md-8">  
+      <%= form.text_field :captioner, class: "form-control" %>
+    </div>
+    <%= form.label :caption, class: "col-md-4 control-label" %><br>
+    <div class="col-md-8">    
+      <%= form.text_area :caption, class: "form-control", maxlength:128 %>
+    </div>
+    <br>
+    <div class="col-md-8">
+      <%= form.submit "Submit", class: "btn btn-default btn-primary" %>
+    </div>
+  </div>
 <% end %>

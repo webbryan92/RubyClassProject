@@ -1,31 +1,30 @@
 <%= render 'navbar' %>
 
+<div class="card-deck" style="margin: 10px">
 <% @captions.each do |caption| %>
-    <div class="card" style="width: 18rem;" margin=10>
+    <div class="card">
         <img class="card-img-top" 
             src="<%= caption.imgurl %>" 
-            alt="hotlink is unavailable" 
+            alt="hotlink is unavailable"
+            style="width: 100%;
+                    object-fit: cover;
+                    padding: 3px"         
             onerror="this.src = `https://picsum.photos/g/200/300`">
         <div class="card-body" align="center">
             <h5 class="card-title">Captioner: <%= caption.captioner %></h5>
             <h5 class="card-title">Votes: <%= caption.votes %></h5>
             <p class="card-text"><%= caption.caption %></p>
-            <%= link_to increment_vote_caption_path(caption) do %>                    
-                <a href="#" class="btn btn-primary">Upvote</a>
-            <% end %>
-            <%= link_to decrement_vote_caption_path(caption) do %>
-                <a href="#" class="btn btn-secondary">Downvote</a>
-            <% end %>
+            <%= link_to 'Upvote', increment_vote_caption_path(caption), class: "btn btn-primary" %>
+            <%= link_to 'Downvote', decrement_vote_caption_path(caption), class: "btn btn-secondary" %>
             <br>
             <br>
-            <%= link_to edit_caption_path(caption) do %>
-                <a href="#" class="btn btn-warning btn-sm">Edit</a>
-            <% end %>
+            <%= link_to 'Edit', edit_caption_path(caption), class: "btn btn-warning btn-sm" %>
             <%= link_to('Delete', caption_path(caption), 
             method: :delete,
-            data: { confirm: "Are you sure?" }
+            data: { confirm: "Are you sure?" },
+            class: "btn btn-danger btn-sm"
             ) %>
         </div>
     </div>
-</div>
 <% end %>
+</div>
