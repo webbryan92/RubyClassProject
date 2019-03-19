@@ -1,22 +1,31 @@
-<h1>Captions</h1>
+<%= render 'navbar' %>
 
-<ul>
-    <% @captions.each do |caption| %>
-    <li>
-        <strong>
-        <img 
+<% @captions.each do |caption| %>
+    <div class="card" style="width: 18rem;" margin=10>
+        <img class="card-img-top" 
             src="<%= caption.imgurl %>" 
             alt="hotlink is unavailable" 
-            height="100"
-            width="100"
             onerror="this.src = `https://picsum.photos/g/200/300`">
-        <!--<%= link_to(caption.imgurl, caption_path(caption)) %>-->
-        <h4><%= caption.captioner %></h1>
-        </strong>
-        <p><%= caption.caption %></p>  
-        <p>Total Votes: <%= caption.votes %></p>
-        <%= button_to 'upvote', increment_vote_caption_path(caption) %>
-        <%= button_to 'downvote', decrement_vote_caption_path(caption) %>
-    </li>
-    <% end %>
-<ul>
+        <div class="card-body" align="center">
+            <h5 class="card-title">Captioner: <%= caption.captioner %></h5>
+            <h5 class="card-title">Votes: <%= caption.votes %></h5>
+            <p class="card-text"><%= caption.caption %></p>
+            <%= link_to increment_vote_caption_path(caption) do %>                    
+                <a href="#" class="btn btn-primary">Upvote</a>
+            <% end %>
+            <%= link_to decrement_vote_caption_path(caption) do %>
+                <a href="#" class="btn btn-secondary">Downvote</a>
+            <% end %>
+            <br>
+            <br>
+            <%= link_to edit_caption_path(caption) do %>
+                <a href="#" class="btn btn-warning btn-sm">Edit</a>
+            <% end %>
+            <%= link_to('Delete', caption_path(caption), 
+            method: :delete,
+            data: { confirm: "Are you sure?" }
+            ) %>
+        </div>
+    </div>
+</div>
+<% end %>

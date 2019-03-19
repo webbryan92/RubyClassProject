@@ -1,6 +1,6 @@
 class CaptionsController < ApplicationController
     def index
-        @captions = Caption.all
+        @captions = Caption.all.sort_by{ |a| a[:votes]}.reverse
     end
     def new
         @caption = Caption.new
@@ -10,7 +10,7 @@ class CaptionsController < ApplicationController
         @caption = Caption.new(caption_params)
         @caption.votes = 0
         @caption.save
-        redirect_to @caption
+        redirect_to captions_path
     end
     def show
         @caption = Caption.find(params[:id])
@@ -21,7 +21,7 @@ class CaptionsController < ApplicationController
     def update
         @caption = Caption.find(params[:id])
         if @caption.update(caption_params)
-            redirect_to @caption
+            redirect_to captions_path
         else
             render 'edit'
         end
